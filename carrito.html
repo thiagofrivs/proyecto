@@ -14,8 +14,11 @@
 
     <div class="wrapper">
         
-        <header>
-            <h1 class="logo">Tienda de Componentes</h1>
+        <div class="nav">
+            <header>
+                <h1 class="logo">Tienda de Componentes</h1>
+            </header>
+            
         
             <nav>
                 <ul>
@@ -27,70 +30,73 @@
                     </li>
                 </ul>
             </nav>
-        </header>
+        </div>
 
         <main>
-            <h2 class="titulo-pricipal">Carrito de Compras</h2>
+            <h2 class="titulo-principal">Carrito de Compras</h2>
             <div class="contenedor-carrito">
                 <p class="carrito-vacio">Tu carrito está vacío <i class="bi bi-emoji-frown"></i></p>
-            </div>
+            
 
-            <div class="carrito-productos">
-                <div class="carrito-producto">
-                    <img src="img/procesadores/01.jpg" alt="">
-                    <div class="carrito-producto titulo">
-                        <small>Título</small>
-                        <h3>Abrigo 01</h3>
+                <div class="carrito-productos disabled">
+                    <div class="carrito-producto">
+                        <img class="carrito-producto-imagen" src="img/procesadores/01.jpg" alt="">
+                        <div class="carrito-producto titulo">
+                            <small>Título</small>
+                            <h3>Abrigo 01</h3>
+                        </div>
+                        <div class="carrito-producto-cantidad">
+                            <small>Cantidad</small>
+                            <p>1</p>
+                        </div>
+                        <div class="carrito-producto-precio">
+                            <small>Precio</small>
+                            <p>$1000</p>
+                        </div>
+                        <div class="carrito-producto-subtotal">
+                            <small>Subtotal</small>
+                            <p>$1000</p>
+                        </div>
+                        <button class="carrito-producto-eliminar"><i class="bi bi-trash"></i></button>
                     </div>
-                    <div class="carrito-producto-cantidad">
-                        <small>Cantidad</small>
-                        <p>1</p>
+
+                    <div class="carrito-producto">
+                        <img class="carrito-producto-imagen" src="img/procesadores/01.jpg" alt="">
+                        <div class="carrito-producto titulo">
+                            <small>Título</small>
+                            <h3>Abrigo 02</h3>
+                        </div>
+                        <div class="carrito-producto-cantidad">
+                            <small>Cantidad</small>
+                            <p>1</p>
+                        </div>
+                        <div class="carrito-producto-precio">
+                            <small>Precio</small>
+                            <p>$2000</p>
+                        </div>
+                        <div class="carrito-producto-subtotal">
+                            <small>Subtotal</small>
+                            <p>$2000</p>
+                        </div>
+                        <button class="carrito-producto-eliminar"><i class="bi bi-trash"></i></button>
                     </div>
-                    <div class="carrito-producto-precio">
-                        <small>Precio</small>
-                        <p>$1000</p>
-                    </div>
-                    <div class="carrito-producto-subtotal">
-                        <small>Subtotal</small>
-                        <p>$1000</p>
-                    </div>
-                    <button class="carrito-producto-eliminar"><i class="bi bi-trash"></i></button>
                 </div>
 
-                <div class="carrito-producto">
-                    <img src="img/procesadores/02.jpg" alt="">
-                    <div class="carrito-producto titulo">
-                        <small>Título</small>
-                        <h3>Abrigo 02</h3>
+                <div class="carrito-acciones disabled">
+                    <div class="carito-acciones-izq">
+                        <button class="carrito-acciones-vaciar">Vaciar Carrito</button>
                     </div>
-                    <div class="carrito-producto-cantidad">
-                        <small>Cantidad</small>
-                        <p>1</p>
+                    <div class="carrito-acciones der">
+                        <div class="carrito-acciones-total">
+                            <p>Total</p>
+                            <p id="total">$3000</p>
+                        </div>
+                        <button class="carrito-acciones-comprar">Comprar ahora</button>
                     </div>
-                    <div class="carrito-producto-precio">
-                        <small>Precio</small>
-                        <p>$2000</p>
-                    </div>
-                    <div class="carrito-producto-subtotal">
-                        <small>Subtotal</small>
-                        <p>$2000</p>
-                    </div>
-                    <button class="carrito-producto-eliminar"><i class="bi bi-trash"></i></button>
                 </div>
+                <p class="carrito-comprado disabled">Muchas gracias por tu compra! <i class="bi bi-emoji-laughing"></i></p>
             </div>
-
-            <div class="carrito-acciones">
-                <div class="carito-acciones-izq">
-                    <button class="carrito-acciones-vaciar">Vaciar Carrito</button>
-                </div>
-                <div class="carrito-acciones der">
-                    <div class="carrito-acciones-total">
-                        <p>Total</p>
-                        <p id="total">$3000</p>
-                    </div>
-                    <button class="carrito-acciones-comprar">Comprar ahora</button>
-                </div>
-            </div>
+        </main>
     
 
     <script src="js/carrito.js"></script>
