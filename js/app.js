@@ -45,7 +45,7 @@ const productos=[
     {
         id: "procesador-05",
         titulo:"Procesador 05",
-        imagen:"./img/procesadores/05.jpg",
+        imagen:"./img/procesadores/04.jpg",
         categoria:{
             nombre:"Procesadores",
             id:"procesadores"
@@ -57,50 +57,50 @@ const productos=[
 
     {
         id: "teclado-01",
-        titulo:"teclado 01",
+        titulo:"Teclado 01",
         imagen:"./img/teclados/01.jpg",
         categoria:{
-            nombre:"teclados",
+            nombre:"Teclados",
             id:"teclados"
         },
         precio:5000
     },
     {
         id: "teclado-02",
-        titulo:"teclado 02",
+        titulo:"Teclado 02",
         imagen:"./img/teclados/02.jpg",
         categoria:{
-            nombre:"teclados",
+            nombre:"Teclados",
             id:"teclados"
         },
         precio:6000
     },
     {
         id: "teclado-03",
-        titulo:"teclado 03",
+        titulo:"Teclado 03",
         imagen:"./img/teclados/03.jpg",
         categoria:{
-            nombre:"teclados",
+            nombre:"Teclados",
             id:"teclados"
         },
         precio:6000
     },
     {
         id: "teclado-04",
-        titulo:"teclado 04",
+        titulo:"Teclado 04",
         imagen:"./img/teclados/04.jpg",
         categoria:{
-            nombre:"teclados",
+            nombre:"Teclados",
             id:"teclados"
         },
         precio:7000
     },
     {
         id: "teclado-05",
-        titulo:"teclado 05",
+        titulo:"Teclado 05",
         imagen:"./img/teclados/05.jpg",
         categoria:{
-            nombre:"teclados",
+            nombre:"Teclados",
             id:"teclados"
         },
         precio:8000
@@ -109,50 +109,50 @@ const productos=[
     //MONITORES
     {
         id: "monitor-01",
-        titulo:"monitor 01",
-        imagen:"./img/monitores/01.jpg",
+        titulo:"Monitor 01",
+        imagen:"./img/monitores/01.jpeg",
         categoria:{
-            nombre:"monitores",
+            nombre:"Monitores",
             id:"monitores"
         },
         precio:30000
     },
     {
         id: "monitor-02",
-        titulo:"monitor 02",
-        imagen:"./img/monitores/02.jpg",
+        titulo:"Monitor 02",
+        imagen:"./img/monitores/02.jpeg",
         categoria:{
-            nombre:"monitores",
+            nombre:"Monitores",
             id:"monitores"
         },
         precio:40000
     },
     {
         id: "monitor-03",
-        titulo:"monitor 03",
-        imagen:"./img/monitores/03.jpg",
+        titulo:"Monitor 03",
+        imagen:"./img/monitores/03.jpeg",
         categoria:{
-            nombre:"monitores",
+            nombre:"Monitores",
             id:"monitores"
         },
         precio:35000
     },
     {
         id: "monitor-04",
-        titulo:"monitor 04",
-        imagen:"./img/monitores/04.jpg",
+        titulo:"Monitor 04",
+        imagen:"./img/monitores/04.jpeg",
         categoria:{
-            nombre:"monitores",
+            nombre:"Monitores",
             id:"monitores"
         },
         precio:45000
     },
     {
         id: "monitor-05",
-        titulo:"monitor 05",
-        imagen:"./img/monitores/05.jpg",
+        titulo:"Monitor 05",
+        imagen:"./img/monitores/05.jpeg",
         categoria:{
-            nombre:"monitores",
+            nombre:"Monitores",
             id:"monitores"
         },
         precio:50000
@@ -161,53 +161,101 @@ const productos=[
     //MEMORIAS
 
     {
-        id: "memoria-01",
-        titulo:"memoria 01",
-        imagen:"./img/memorias/01.jpg",
+        id: "mouse-01",
+        titulo:"Mouse 01",
+        imagen:"./img/mouses/01.jpeg",
         categoria:{
-            nombre:"memorias",
-            id:"memorias"
+            nombre:"Mouses",
+            id:"mouses"
         },
         precio:7000
     },
     {
-        id: "memoria-02",
-        titulo:"memoria 02",
-        imagen:"./img/memorias/02.jpg",
+        id: "mouse-02",
+        titulo:"Mouse 02",
+        imagen:"./img/mouses/02.jpeg",
         categoria:{
-            nombre:"memorias",
-            id:"memorias"
+            nombre:"Mouses",
+            id:"mouses"
         },
         precio:8000
     },
     {
-        id: "memoria-03",
-        titulo:"memoria 03",
-        imagen:"./img/memorias/03.jpg",
+        id: "mouse-03",
+        titulo:"Mouse 03",
+        imagen:"./img/mouses/03.png",
         categoria:{
-            nombre:"memorias",
-            id:"memorias"
+            nombre:"Mouses",
+            id:"mouses"
         },
         precio:8000
     },
     {
-        id: "memoria-04",
-        titulo:"memoria 04",
-        imagen:"./img/memorias/04.jpg",
+        id: "mouse-04",
+        titulo:"Mouse 04",
+        imagen:"./img/mouses/04.jpeg",
         categoria:{
-            nombre:"memorias",
-            id:"memorias"
+            nombre:"Mouses",
+            id:"mouses"
         },
         precio:8000
     },
     {
-        id: "memoria-05",
-        titulo:"memoria 05",
-        imagen:"./img/memorias/05.jpg",
+        id: "mouse-05",
+        titulo:"Mouse 05",
+        imagen:"./img/mouses/05.jpeg",
         categoria:{
-            nombre:"memorias",
-            id:"memorias"
+            nombre:"Mouses",
+            id:"mouses"
         },
         precio:10000
     },
 ]
+
+const contenedorProductos = document.querySelector("#contenedor-productos");
+const botonesCategoria=document.querySelectorAll(".boton-categoria")
+const tituloPrincipal=document.querySelector("#titulo-principal")
+
+function cargarProductos(productosElegidos){
+    productosElegidos.forEach(producto => {
+
+        const div=document.createElement("div")
+        div.classList.add("producto")
+        div.innerHTML=`
+                        <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+                        <div class="producto-detalles">
+                            <h3 class="producto-titulo">${producto.titulo}</h3>
+                            <p class="producto-precio">${producto.precio}</p>
+                            <button class="producto-agregar" id="${producto.id}">Agregar</button>
+                        </div>`
+        contenedorProductos.append(div)
+        console.log("puto")
+    })
+
+}
+
+cargarProductos(productos)
+
+botonesCategoria.forEach(boton => {
+    boton.addEventListener("click",(e) =>{
+
+        contenedorProductos.innerHTML=""
+
+        botonesCategoria.forEach(boton=>boton.classList.remove("active"))
+        e.currentTarget.classList.add("active")
+
+        if(e.currentTarget.id != "todos"){
+            const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id)
+            cargarProductos(productosBoton)
+            
+            const productoCategoria = productos.find(producto =>  producto.categoria.id === e.currentTarget.id)
+            tituloPrincipal.innerText=productoCategoria.categoria.nombre
+        } else{
+            tituloPrincipal.innerText="Todos los productos."
+            cargarProductos(productos)
+        }
+        
+
+        
+    })
+});
