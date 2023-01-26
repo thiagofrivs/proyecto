@@ -29,6 +29,10 @@ a{
     text-decoration: none;
 }
 
+main{
+    height: 100%;
+}
+
 .wrapper{
     display: flex;
     flex-direction: column;
@@ -121,10 +125,10 @@ ul{
     border-radius:.25rem;
 }
 
-.boton-carrito.active .numerito{
+/* .boton-carrito.active .numerito{
     background-color: var(--clr-main);
     color: var(--clr-white);
-}
+} */
 
 .menu{
     display: flex;
@@ -233,6 +237,8 @@ main{
 .carrito-producto small{
     font-size: .75rem;
 }
+
+
 
 .carrito-producto-eliminar{
     border: 0;
