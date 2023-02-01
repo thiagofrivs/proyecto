@@ -266,7 +266,23 @@ function agregarHTML(){
             const botonEliminar=document.querySelector(`#${producto.id}`)
 
             botonEliminar.addEventListener("click",(e)=>{
-                sacarDelCarrito(e.currentTarget.id)
+                let boton = e.currentTarget.id
+                
+                Swal.fire({
+                    title: '¿Desea eliminar este producto?',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Eliminar',
+                    denyButtonText: `Conservar`,
+                  }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                      Swal.fire('Producto eliminado!', '', 'success')
+                      sacarDelCarrito(boton)
+                    } else if (result.isDenied) {
+                      Swal.fire('El producto seguirá en el carrito', '', 'info')
+                    }
+                  })
             })
             
         });
@@ -281,17 +297,48 @@ agregarHTML()
 
 
 botonVaciar.addEventListener("click",(e)=>{
-    contenedorCarritoProductos.classList.add("disabled")
-    contenedorCarritoAcciones.classList.add("disabled")
-    contenedorCarritoVacio.classList.remove("disabled")
-    localStorage.clear()
+    Swal.fire({
+        title: '¿Desea vaciar el carrito?',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Vaciar carrito',
+        denyButtonText: `Conservar carrito`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            Swal.fire('Carrito vaciado!', '', 'success')
+            contenedorCarritoProductos.classList.add("disabled")
+            contenedorCarritoAcciones.classList.add("disabled")
+            contenedorCarritoVacio.classList.remove("disabled")
+            localStorage.clear()
+        } else if (result.isDenied) {
+          Swal.fire('El carrito sigue igual', '', 'info')
+        }
+      })
+
+    
 })
 
 botonComprar.addEventListener("click",(e)=>{
-    contenedorCarritoProductos.classList.add("disabled")
-    contenedorCarritoAcciones.classList.add("disabled")
-    contenedorCarritoComprado.classList.remove("disabled")
-    localStorage.clear()
+    Swal.fire({
+        title: '¿Desea comprar los productos en el carrito?',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Finalizar compra',
+        denyButtonText: `Seguir comprando`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            Swal.fire('Compra finalizada!', '', 'success')
+            contenedorCarritoProductos.classList.add("disabled")
+            contenedorCarritoAcciones.classList.add("disabled")
+            contenedorCarritoComprado.classList.remove("disabled")
+            localStorage.clear()
+        } else if (result.isDenied) {
+          Swal.fire('Seguirá comprando', '', 'info')
+        }
+      })
+    
 })
 
 function sacarDelCarrito(idBoton){
