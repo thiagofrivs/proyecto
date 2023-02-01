@@ -222,9 +222,10 @@ const contenedorCarritoComprado=document.querySelector("#carrito-comprado")
 const textoTotal=document.querySelector("#total")
 const botonVaciar=document.querySelector("#vaciar-carrito")
 const botonComprar=document.querySelector("#boton-comprar")
+let total=0
 
 console.log(productosEnCarrito)
-let total=0
+
 
 function agregarHTML(){
     if (productosEnCarrito){
