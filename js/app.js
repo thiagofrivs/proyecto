@@ -299,6 +299,18 @@ function agregarAlCarrito(e){
     actualizaNumerito();
 
     localStorage.setItem("productos-en-carrito",JSON.stringify(productosEnCarrito))
+    Toastify({
+        text: "Producto agregado!",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "#785ce9",
+        },
+    }).showToast();
 }
 
 function actualizaNumerito(){
