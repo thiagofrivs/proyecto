@@ -209,6 +209,7 @@ const productos=[
         precio:10000
     },
 ]
+console.log(productos)
 
 
 
