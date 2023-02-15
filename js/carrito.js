@@ -67,8 +67,19 @@ function agregarHTML(){
 
             botonEliminar.addEventListener("click",(e)=>{
                 let boton = e.currentTarget.id
-                
                 sacarDelCarrito(boton,1)
+                Toastify({
+                    text: "Producto eliminado!",
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "left", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                        background: "#785ce9",
+                    },
+                }).showToast();
             })
             
         });
