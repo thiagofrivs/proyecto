@@ -1,4 +1,13 @@
-//PRODUCTOS
+//TRAIGO LOS PRODUCTOS
+let productos=''
+fetch('./productos/productos.json')
+.then((res)=>res.json())
+.then((data)=>
+{
+    productos=data
+    console.log(productos)
+    cargarProductos(data)
+})
 
 
 
@@ -31,15 +40,6 @@ function cargarProductos(productosElegidos){
 }
 
 
-let productos=''
-fetch('./productos/productos.json')
-.then((res)=>res.json())
-.then((data)=>
-{
-    productos=data
-    console.log(productos)
-    cargarProductos(data)
-})
 
 
 
