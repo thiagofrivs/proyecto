@@ -33,6 +33,11 @@ main{
     height: 100%;
 }
 
+body{
+    height: 100vh;
+    background-color: var(--clr-main);
+}
+
 .wrapper{
     display: flex;
     flex-direction: column;
