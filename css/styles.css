@@ -1,155 +1,170 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
+/* ============================================
+   PROYECTO FINAL - TIENDA ONLINE
+   Desarrollado por Thiago Santamaria
+   Curso de JavaScript
+   
+   Este archivo contiene todos los estilos CSS
+   para la tienda online, incluyendo:
+   - Variables CSS y fuentes
+   - Estilos responsivos
+   - Menú hamburguesa
+   - Grid de productos
+   - Formularios y reseñas
+   ============================================ */
 
-:root{
-    
-    --clr-main: #4b33a8;
-    --clr-main-light: #785ce9;
-    --clr-white: #ececec;
+/* Variables CSS y Google Fonts */
+:root {
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+    --clr-main: #785ce9;
+    --clr-white: #fff;
     --clr-grey: #e2e2e2;
     --clr-red: #961818;
 }
 
-*{
+/* Reset CSS - para que todos los navegadores se vean igual */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Rubik',sans-serif;
+    font-family: var(--font-secondary);
 }
 
-h1,h2,h3,h4,h5,h6,p,a,input,textarea,ul{
+/* Reset de elementos básicos */
+h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul {
     margin: 0;
     padding: 0;
 }
 
-ul{
+ul {
     list-style-type: none;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-main{
-    height: 100%;
-}
+/* ============================================
+   ESTRUCTURA BÁSICA DE LA PÁGINA
+   ============================================ */
 
-body{
-    height: 100vh;
-    background-color: var(--clr-main);
-}
-
-.wrapper{
+/* Contenedor principal */
+.wrapper {
     display: flex;
     flex-direction: column;
     background-color: var(--clr-main);
 }
 
-.nav{
+/* Navegación principal */
+.nav {
     padding: 2rem;
     padding-bottom: 0;
     color: var(--clr-white);
     top: 0;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: flex-start;
+    margin-left: 50px;
+    width: 100%;
 }
 
-.items{
+/* Contenedor de elementos de navegación */
+.items {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
     gap: 4rem;
+    min-height: 40px;
 }
 
-
-
-ul{
-    display: flex;
-    
+/* Logo de la tienda */
+.logo {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.3rem;
 }
 
+/* ============================================
+   BOTONES Y ELEMENTOS DE NAVEGACIÓN
+   ============================================ */
 
-.logo{
-    font-weight: 400;
-    font-size: 1.3 rem;
-}
-
-.boton-menu{
+/* Estilo base para todos los botones del menú */
+.boton-menu {
     background-color: transparent;
     border: 0;
     color: var(--clr-white);
-    font-weight: 600;
+    font-family: var(--font-secondary);
+    font-weight: 500;
     cursor: pointer;
     display: flex;
-    gap: .5rem;
-    padding: .5rem;
+    gap: 0.5rem;
+    padding: 0.5rem;
     font-size: 1rem;
 }
 
-
-.boton-menu.active{
+/* Estado activo de los botones */
+.boton-menu.active {
     background-color: var(--clr-white);
-    color:var(--clr-main);
+    color: var(--clr-main);
     height: 100%;
-    border-top-left-radius:1rem ;
+    border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     position: relative;
 }
 
-.boton-menu.active::before{
-    content: '';
-    position: absolute;
-    width: 1rem;
-    height: 100%;
-    left: 100%;
-    top: 0;
-    background-color: transparent;
-    border-bottom-left-radius: 2rem;
-    box-shadow: 0 1rem 0 var(--clr-white);
-}
-
-.boton-menu.active::after{
-    content: '';
-    position: absolute;
-    width: 1rem;
-    height: 100%;
-    right: 100%;
-    top: 0;
-    background-color: transparent;
-    border-bottom-right-radius: 2rem;
-    box-shadow: 0 1rem 0 var(--clr-white);
-}
-
-.boton-carrito{
+/* Botón del carrito */
+.boton-carrito {
     height: 100%;
 }
 
-.numerito{
+/* Número que muestra la cantidad en el carrito */
+.numerito {
     background-color: var(--clr-white);
     color: var(--clr-main);
-    padding: .15rem .25rem;
-    border-radius:.25rem;
+    padding: 0.15rem 0.25rem;
+    border-radius: 0.25rem;
 }
 
-/* .boton-carrito.active .numerito{
-    background-color: var(--clr-main);
-    color: var(--clr-white);
-} */
-
-.menu{
+/* Menú principal */
+.menu {
     display: flex;
     gap: 1rem;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
-.boton-menu>i.bi-hand-index-thumb-fill,.boton-menu>i.bi-hand-index-thumb{
+/* Estilos para el contenedor de filtros dinámicos */
+#filtros-categorias {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#filtros-categorias li {
+    display: inline-block;
+    margin: 0;
+}
+
+/* Rotar los iconos de los botones */
+.boton-menu > i.bi-hand-index-thumb-fill,
+.boton-menu > i.bi-hand-index-thumb {
     transform: rotateZ(90deg);
 }
 
-footer{
-    color: var(--clr-main-light);
-    font-size: 0.85 rem;
+/* ============================================
+   FOOTER Y ESTRUCTURA GENERAL
+   ============================================ */
+
+footer {
+    color: var(--clr-main);
+    font-size: 0.85rem;
 }
 
-main{
+main {
     background-color: var(--clr-white);
     margin: 1rem;
     margin-top: 0;
@@ -157,78 +172,120 @@ main{
     padding: 3rem;
 }
 
-.titulo-principal{
+/* Título principal de la página */
+.titulo-principal {
     color: var(--clr-main);
     margin-bottom: 2rem;
+    font-family: var(--font-primary);
+    font-weight: 600;
 }
 
-.contenedor-productos{
+/* ============================================
+   GRID DE PRODUCTOS RESPONSIVO
+   ============================================ */
+
+/* Contenedor de productos con grid responsivo */
+.contenedor-productos {
     display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 0 0.5rem;
 }
 
-.producto-imagen{
-    max-width: 100%;
-    border-radius: 1rem;
-}
-
-.producto-detalles{
-    background-color: var(--clr-main);
-    color: var(--clr-white);
-    padding: .5rem;
-    border-radius:1rem ;
-    margin-top: -1.5rem;
-    position: relative;
+/* Tarjeta individual de producto */
+.producto {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(120,92,233,0.07);
     display: flex;
     flex-direction: column;
-    gap: .25rem;
+    align-items: center;
+    padding: 1.2rem 1rem 1.5rem 1rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    min-width: 0;
 }
 
-.producto-titulo{
+/* Efecto hover en las tarjetas de productos */
+.producto:hover {
+    box-shadow: 0 4px 24px rgba(120,92,233,0.13);
+    transform: translateY(-4px) scale(1.02);
+}
+
+/* Imagen del producto */
+.producto-imagen {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background: #f6f6fa;
+    padding: 0.5rem;
+}
+
+/* Contenedor de detalles del producto */
+.producto-detalles {
+    width: 100%;
+    text-align: center;
+}
+
+/* Título del producto */
+.producto-titulo {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #4b369d;
+    font-family: var(--font-primary);
+    font-weight: 600;
+}
+
+/* Precio del producto */
+.producto-precio {
+    font-size: 1.2rem;
+    color: #785ce9;
+    margin-bottom: 0.7rem;
+    font-family: var(--font-primary);
+    font-weight: 700;
+}
+
+/* Botón para agregar al carrito */
+.producto-agregar {
+    background: #785ce9;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
     font-size: 1rem;
-}
-
-.producto-agregar{
-    border: 0;
-    background-color: var(--clr-white);
-    color: var(--clr-main);
-    padding: .5rem;
-    text-transform: uppercase;
-    border-radius: 2rem;
     cursor: pointer;
-    border: 2px solid var(--clr-white);
-    transition: background-color .5s, color .2s ;
+    transition: background 0.2s, transform 0.2s;
+    font-weight: 500;
 }
 
-.producto-agregar:hover{
-    background-color: var(--clr-main);
-    color: var(--clr-white);
+.producto-agregar:hover {
+    background: #4b369d;
+    transform: scale(1.05);
 }
-
 
 /* CARRITO */
-
-.contenedor-carrito{
+.contenedor-carrito {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-.carrito-vacio,.carrito-comprado{
+.carrito-vacio,
+.carrito-comprado {
     color: var(--clr-main);
-    
 }
 
-
-
-.carrito-productos{
+.carrito-productos {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
-.carrito-producto{
+.carrito-producto {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -237,37 +294,35 @@ main{
     padding: 0.5rem;
     padding-right: 2rem;
     border-radius: 1rem;
+    flex-wrap: wrap;
 }
 
-.carrito-producto small{
-    font-size: .75rem;
+.carrito-producto small {
+    font-size: 0.75rem;
 }
 
-
-
-.carrito-producto-eliminar{
+.carrito-producto-eliminar {
     border: 0;
     background-color: transparent;
     color: var(--clr-red);
     cursor: pointer;
-
 }
 
-.carrito-producto-imagen{
+.carrito-producto-imagen {
     width: 4rem;
     border-radius: 1rem;
 }
 
-.carrito-acciones{
+.carrito-acciones {
     display: flex;
     justify-content: space-between;
 }
 
-.carrito-acciones-derecha{
+.carrito-acciones-derecha {
     display: flex;
 }
 
-.carrito-acciones-total{
+.carrito-acciones-total {
     display: flex;
     background-color: var(--clr-grey);
     padding: 1rem;
@@ -279,9 +334,7 @@ main{
     gap: 1rem;
 }
 
-
-
-.carrito-acciones-comprar{
+.carrito-acciones-comprar {
     border: 0;
     background-color: var(--clr-main);
     padding: 1rem;
@@ -292,7 +345,7 @@ main{
     cursor: pointer;
 }
 
-.carrito-acciones-vaciar{
+.carrito-acciones-vaciar {
     border: 0;
     background-color: var(--clr-grey);
     padding: 1rem;
@@ -302,6 +355,721 @@ main{
     cursor: pointer;
 }
 
-.disabled{
+.disabled {
     display: none;
 }
+
+.container {
+    margin: 0;
+    max-width: 100%;
+}
+
+/* ============================================
+   MENÚ HAMBURGUESA Y RESPONSIVIDAD
+   ============================================ */
+
+/* Botón hamburguesa para móvil */
+.menu-hamburguesa {
+    display: none;
+    background: none;
+    border: none;
+    color: #785ce9;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    background: #fff;
+    border: 2px solid #785ce9;
+}
+
+.menu-hamburguesa:active,
+.menu-hamburguesa:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(120,92,233,0.3);
+}
+
+.menu-hamburguesa i {
+    color: #785ce9;
+    transition: color 0.2s;
+}
+
+.menu-hamburguesa:hover {
+    background: #785ce9;
+    color: #fff;
+}
+
+.menu-hamburguesa:hover i {
+    color: #fff;
+}
+
+/* ============================================
+   MEDIA QUERIES PARA RESPONSIVIDAD
+   ============================================ */
+
+/* Estilos para tablets y pantallas medianas */
+@media (max-width: 992px) {
+    .contenedor-productos {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    
+    .producto-imagen {
+        max-width: 150px;
+    }
+}
+
+/* Estilos para móviles pequeños */
+@media (max-width: 600px) {
+    .contenedor-productos {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.8rem;
+    }
+    
+    .producto {
+        padding: 1rem 0.8rem 1.2rem 0.8rem;
+    }
+    
+    .producto-imagen {
+        max-width: 120px;
+    }
+}
+
+/* ============================================
+   MENÚ HAMBURGUESA PARA MÓVIL
+   ============================================ */
+
+/* Mostrar botón hamburguesa en móvil */
+@media (max-width: 768px) {
+    .menu-hamburguesa {
+        display: block !important; /* Mostrar en móvil */
+    }
+    
+    /* Ocultar menú normal y mostrar menú hamburguesa */
+    .items .menu {
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        background: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        min-width: 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+        z-index: 2000;
+        padding: 4rem 1.2rem 1.2rem 1.2rem;
+        border-radius: 0;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity 0.25s, transform 0.25s;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    
+    /* Estado activo del menú hamburguesa */
+    .items .menu.activo {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+    
+    /* Estilos para los elementos del menú móvil */
+    .items .menu li {
+        width: 100%;
+        min-width: 0;
+    }
+    
+    /* Botones del menú móvil */
+    .boton-menu {
+        width: 100%;
+        text-align: left;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: background 0.2s, color 0.2s;
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        color: #4b369d;
+        margin-bottom: 0.4rem;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Estados hover y active para botones móviles */
+    .boton-menu:hover, .boton-menu.active {
+        background: #785ce9;
+        color: #fff;
+        border-color: #785ce9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(120,92,233,0.3);
+    }
+    
+    /* Iconos en botones móviles */
+    .boton-menu i {
+        margin-right: 0.6rem;
+        font-size: 1rem;
+    }
+    
+    /* Sección extra del menú (carrito, contacto, reseñas) */
+    .menu-extra {
+        display: block;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 2px solid #e9ecef;
+    }
+    
+    /* Estilos específicos para filtros dinámicos en móvil */
+    #filtros-categorias {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    #filtros-categorias li {
+        width: 100%;
+        display: block;
+    }
+    
+    #filtros-categorias .boton-menu {
+        width: 100%;
+        text-align: left;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        color: #4b369d;
+        margin-bottom: 0.4rem;
+        box-sizing: border-box;
+    }
+    
+    #filtros-categorias .boton-menu:hover,
+    #filtros-categorias .boton-menu.active {
+        background: #785ce9;
+        color: #fff;
+        border-color: #785ce9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(120,92,233,0.3);
+    }
+    
+    /* Botones especiales del menú móvil */
+    .menu-extra .boton-menu {
+        background: #fff;
+        border: 2px solid #785ce9;
+        color: #785ce9;
+    }
+    
+    .menu-extra .boton-menu:hover {
+        background: #785ce9;
+        color: #fff;
+    }
+    
+    /* Botón del carrito en móvil */
+    .boton-carrito {
+        margin-top: 0.5rem;
+    }
+    
+    /* Ocultar elementos solo para desktop */
+    .desktop-only {
+        display: none !important;
+    }
+    
+    /* Botón para cerrar el menú hamburguesa */
+    .cerrar-menu {
+        display: none;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background: #fff;
+        border: 2px solid #dc3545;
+        font-size: 1.8rem;
+        color: #dc3545;
+        z-index: 2200;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: background 0.2s;
+        width: 3rem;
+        height: 3rem;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .cerrar-menu:hover {
+        background: #dc3545;
+        color: #fff;
+    }
+    
+    /* Mostrar la X solo cuando el menú está activo */
+    .items .menu.activo + .cerrar-menu,
+    .items .menu.activo .cerrar-menu {
+        display: flex;
+    }
+}
+
+/* ============================================
+   ESTILOS PARA DESKTOP
+   ============================================ */
+
+/* Ocultar menú hamburguesa en desktop */
+@media (min-width: 769px) {
+    .menu-hamburguesa {
+        display: none !important;
+    }
+    
+    /* Mostrar menú normal en desktop */
+    .items .menu {
+        display: flex !important;
+        position: static;
+        box-shadow: none;
+        background: none;
+        flex-direction: row;
+        gap: 0.5rem;
+        padding: 0;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+    }
+    
+    /* Estilos específicos para filtros dinámicos en desktop */
+    #filtros-categorias {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    #filtros-categorias li {
+        display: inline-block;
+        margin: 0;
+    }
+    
+    #filtros-categorias .boton-menu {
+        width: auto;
+        text-align: center;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        background: transparent;
+        border: 0;
+        color: var(--clr-white);
+    }
+    
+    #filtros-categorias .boton-menu:hover,
+    #filtros-categorias .boton-menu.active {
+        background: var(--clr-white);
+        color: var(--clr-main);
+        border: 0;
+        transform: none;
+        box-shadow: none;
+    }
+    
+    /* Botones del menú desktop */
+    .boton-menu {
+        width: auto;
+        text-align: center;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-size: 1rem;
+    }
+    
+    /* Mostrar botones del carrito en desktop */
+    .items > .boton-carrito {
+        display: inline-flex !important;
+    }
+    
+    /* Ocultar elementos extra del menú en desktop */
+    .menu-extra {
+        display: none !important;
+    }
+    
+    /* Mostrar elementos solo para desktop */
+    .desktop-only {
+        display: inline-flex !important;
+    }
+    
+    /* Ocultar botón de cerrar en desktop */
+    .cerrar-menu {
+        display: none !important;
+    }
+}
+
+/* ============================================
+   MEJORAS GENERALES PARA MÓVILES
+   ============================================ */
+
+/* Mejorar el fondo general para móviles */
+@media (max-width: 768px) {
+    body {
+        background: #f8f9fa;
+    }
+}
+
+/* Estilos para el formulario de contacto */
+.contacto-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.contacto-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.titulo-contacto {
+    color: #4b369d;
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.titulo-contacto i {
+    color: #785ce9;
+    margin-right: 0.5rem;
+}
+
+.subtitulo-contacto {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.formulario-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.formulario-contacto {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(120,92,233,0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #4b369d;
+    font-size: 0.95rem;
+    font-family: var(--font-secondary);
+}
+
+.form-label i {
+    color: #785ce9;
+    margin-right: 0.3rem;
+}
+
+.form-input,
+.form-textarea,
+select.form-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #fff;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+select.form-input:focus {
+    outline: none;
+    border-color: #785ce9;
+    box-shadow: 0 0 0 3px rgba(120,92,233,0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 0.5rem;
+    transform: scale(1.2);
+}
+
+.btn-enviar {
+    background: #785ce9;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    width: 100%;
+    font-family: var(--font-secondary);
+}
+
+.btn-enviar:hover {
+    background: #4b369d;
+    transform: translateY(-2px);
+}
+
+.btn-enviar i {
+    margin-right: 0.5rem;
+}
+
+.info-contacto {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #785ce9;
+}
+
+.info-contacto h3 {
+    color: #4b369d;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-family: var(--font-primary);
+    font-weight: 600;
+}
+
+.info-contacto h3 i {
+    color: #785ce9;
+    margin-right: 0.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.info-item i {
+    color: #785ce9;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    margin-top: 0.2rem;
+}
+
+.info-item div {
+    color: #666;
+    line-height: 1.5;
+}
+
+.info-item strong {
+    color: #4b369d;
+}
+
+/* Estilos para la sección de reseñas */
+.reseñas-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    margin: 3rem 0;
+}
+
+.titulo-reseñas {
+    text-align: center;
+    color: #4b369d;
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.titulo-reseñas i {
+    color: #ffd700;
+    margin-right: 0.5rem;
+}
+
+.subtitulo-reseñas {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reseñas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.reseña-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(120,92,233,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 4px solid #785ce9;
+}
+
+.reseña-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(120,92,233,0.15);
+}
+
+.reseña-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.reseña-avatar {
+    font-size: 3rem;
+    color: #785ce9;
+    margin-right: 1rem;
+}
+
+.reseña-info h4 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: #4b369d;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.reseña-estrellas {
+    color: #ffd700;
+    font-size: 1rem;
+}
+
+.reseña-estrellas i {
+    margin-right: 0.1rem;
+}
+
+.reseña-texto {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* Responsive para reseñas */
+@media (max-width: 768px) {
+    .reseñas-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .titulo-reseñas {
+        font-size: 2rem;
+    }
+    
+    .reseña-card {
+        padding: 1.5rem;
+    }
+    
+    .formulario-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .titulo-contacto {
+        font-size: 2rem;
+    }
+    
+    .contacto-container {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+    
+    .formulario-contacto,
+    .info-contacto {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-reseñas {
+        font-size: 1.8rem;
+    }
+    
+    .reseña-card {
+        padding: 1rem;
+    }
+    
+    .titulo-contacto {
+        font-size: 1.8rem;
+    }
+    
+    .formulario-contacto,
+    .info-contacto {
+        padding: 1rem;
+    }
+    
+    .btn-enviar {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+.texto-footer {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+}
+
+/* Estilos para la página de reseñas */
+.reseñas-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.reseñas-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Responsive para página de reseñas */
+@media (max-width: 768px) {
+    .reseñas-container {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+}
+

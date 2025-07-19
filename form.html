@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Tienda</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos BootsTrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon/ios_sample.png" type="image/x-icon">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="nav container">
+            <header>
+                <h1 class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Tienda</a></h1>
+            </header>
+            <nav>
+                <div class="items">
+                    <a class="boton-menu boton-carrito" href="carrito.html"><i class="bi bi-cart-fill"></i>Carrito <span id="numerito" class="numerito">0</span></a>
+                    <a class="boton-menu boton-carrito active" href="form.html">Contacto</a>
+                    <a class="boton-menu boton-carrito" href="reseñas.html">Reseñas</a>
+                </div>
+            </nav>
+        </div>
+
+        <main class="container">
+            <div class="contacto-container">
+                <div class="contacto-header">
+                    <h2 class="titulo-contacto"><i class="bi bi-envelope-fill"></i> Contáctanos</h2>
+                    <p class="subtitulo-contacto">¿Tienes alguna pregunta o necesitas ayuda? Estamos aquí para ayudarte.</p>
+                </div>
+
+                <div class="formulario-container">
+                    <form action="https://formspree.io/f/mvgqzpyy" method="POST" class="formulario-contacto">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre" class="form-label">
+                                    <i class="bi bi-person-fill"></i> Nombre completo *
+                                </label>
+                                <input type="text" id="nombre" name="nombre" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">
+                                    <i class="bi bi-envelope-fill"></i> Email *
+                                </label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono" class="form-label">
+                                    <i class="bi bi-telephone-fill"></i> Teléfono
+                                </label>
+                                <input type="tel" id="telefono" name="telefono" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="asunto" class="form-label">
+                                    <i class="bi bi-tag-fill"></i> Asunto *
+                                </label>
+                                <select id="asunto" name="asunto" class="form-input" required>
+                                    <option value="">Selecciona un asunto</option>
+                                    <option value="consulta">Consulta general</option>
+                                    <option value="producto">Información de producto</option>
+                                    <option value="compra">Problema con compra</option>
+                                    <option value="devolucion">Devolución o cambio</option>
+                                    <option value="sugerencia">Sugerencia</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje" class="form-label">
+                                <i class="bi bi-chat-dots-fill"></i> Mensaje *
+                            </label>
+                            <textarea id="mensaje" name="mensaje" class="form-textarea" rows="6" placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="newsletter" id="newsletter">
+                                <span class="checkmark"></span>
+                                Quiero recibir noticias y ofertas especiales
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-enviar">
+                                <i class="bi bi-send-fill"></i> Enviar mensaje
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="info-contacto">
+                        <h3><i class="bi bi-info-circle-fill"></i> Información de contacto</h3>
+                        <div class="info-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div>
+                                <strong>Dirección:</strong><br>
+                                Av. Principal 123, Ciudad
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-telephone-fill"></i>
+                            <div>
+                                <strong>Teléfono:</strong><br>
+                                +54 11 1234-5678
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                info@tienda.com
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-clock-fill"></i>
+                            <div>
+                                <strong>Horarios:</strong><br>
+                                Lunes a Viernes: 9:00 - 18:00<br>
+                                Sábados: 9:00 - 13:00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p class="texto-footer">© 2022 Thiago Santamaria</p>
+        </footer>
+    </div>
+
+    <!-- Toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- JS -->
+    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

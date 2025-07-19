@@ -6,7 +6,6 @@ fetch('./productos/productos.json')
 {
     productos=data
     console.log(productos)
-    
 })
 
 
